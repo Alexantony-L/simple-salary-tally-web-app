@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Start tracking my expense</title>
+</head>
+<body> 
+	  
+       <div class="container">
+       	<div class="row">
+       		<div class="col-md-3"></div>
+       		<div class="col-md-6  shadow" style="margin-top: 10%;width: 60%;height: 50%; ">
+       			<center><h3 class="text-uppercase" style="color:green;padding-top: 20px;">Start tracking my expense<h3></center>
+       			<div style="padding-top: 10%;padding-bottom: 10%">
+       			<form action="/" method="POST">
+					<label style="font-weight: bold;">Email ID:</label>
+       				<div class="form-group">
+       					<input type="text" class="form-control" name="email">
+       				</div>
+					<label style="font-weight: bold;">Current Balance:</label>
+
+       				<div class="form-group">
+       					<input type="text" class="form-control" name="amount">
+       				</div>
+       				
+       					<button  type="submit"  class="btn btn-primary btn-md btn-block" style="float: right;">Start</button>
+       			</form>
+       			</div>
+       		</div>
+       		<div class="col-md-3"></div>
+       	</div>
+       </div>
+</body>
+</html>

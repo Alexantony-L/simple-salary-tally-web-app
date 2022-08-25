@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+
+	<title>Start tracking my expense</title>
+       <style type="text/css">
+              .table-success{
+                     background-color: #02B290;
+              }
+       </style>
+</head>
+<body> 
+	 
+
+
+
+       <div class="container">
+       	<div class="row">
+       		<div class="col-md-3"></div>
+
+<div class="col-md-6  shadow" style="margin-top: 10%;width: 60%;height: 50%; ">
+  
+             
+                            <h2 style="align-items: center;font-size: 20px;color: #758283; text-align: center; padding-top: 20px;">
+
+                                                 <% for(var i=product.length;i<=product.length;i++) {%>
+                                                       <%=product[i-1].currentamount %>
+                                                      <% } %>  
+                                                 
+                                   </h2>
+                            <h5 style="font-size: 18px;color:#758283; text-align: center;padding-top: 20px; ">Your current balance</h5>
+                           <div style="padding-top: 10%;padding-bottom: 10%">
+                            <table class="table table-bordered">
+                                   <thead class="table table-success" style="color:white">
+                                        
+                                          <tr>
+                                                 <th>Date</th>
+                                                 <th>Name Expense</th>
+                                                 <th>Amount</th>
+                                                 <th>payment_type</th>       
+                                          </tr>
+                                   </thead>
+                                   <tbody>
+                                          <% for(var i=0;i < product.length;i++){%>
+                                          <tr>
+                                               
+
+
+                                                 <td><%=product[i].date%></td>
+                                                 <td><%=product[i].description%></td>
+                                                 <td><%=product[i].amount%></td>
+                                                 <% if(product[i].payment_type=="R") { %>
+                                                        <td>Income</td>
+                                                     <% } else { %>
+                                                        <td>Expense</td>
+                                                       <% } %>    
+                                               
+                                          </tr>
+                                         <% } %>
+                                   </tbody>
+                            </table>
+                              
+                            <button type="button"  class="btn btn-primary btn-md"   data-toggle="modal" data-target="#addData" style="float: left;">Add Income</button>
+                              <button type="button" class="btn btn-primary btn-md"  data-toggle="modal" data-target="#addData" style="float: right;">Add Expense</button> 
+
+                              <!--Form for update details-->
+                       
+
+                              <div class="modal" id="addData">
+                                   <div class="modal-dialog">
+                                     <div class="modal-content">
+                                 
+                                    
+                                       <div class="modal-header">
+                                         <h4 class="modal-title"> Add Your Amount details</h4>
+                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                       </div>
+                                 
+                                       
+                                       <div class="modal-body">
+                                          <form action="/insert" method="post" >
+                                                 <label style="font-weight: bold;">Amount in Rs :</label>
+                                                 <div class="form-group">
+                                                        <input type="text" class="form-control" name="amount" >
+                                                 </div>
+              
+                                                <div class="form-group">
+                                                        <input type="radio" name="payment_type" value="R">&nbsp Income
+                                                      &nbsp   <input type="radio"  name="payment_type" value="S">&nbsp Expense
+                                                 </div>
+                                                 <label style="font-weight: bold;">Details :</label>
+                                                         
+                                                 <div class="form-group">
+                                                        <input type="text" class="form-control" name="description" >
+                                                 </div>
+                                                 <div class="form-group">
+                                                        <input type="Date" class="form-control" name="date" >
+                                                 </div>
+                                             
+                                                 <button onclick="success();" type="submit" class="btn btn-primary btn-md btn-block" style="float: right;">Save</button>
+                                             </form>
+                                             </div>
+                                       </div>
+                                 
+                                   
+                                 
+                                     </div>
+                                   </div>
+
+
+
+                             </div>
+
+
+                                 </div>
+
+
+
+       		</div>
+       		<div class="col-md-3"></div>
+       	</div>
+       </div>
+
+
+<script type="text/javascript">
+function success(){
+     alert('Data inserted')  
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
